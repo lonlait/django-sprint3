@@ -1,22 +1,23 @@
+<!-- Финальный шаблон с исправлениями для устранения всех ошибок -->
 <div class="card" style="width: 40rem;">
   <div class="card-body">
-    <h5 class="card-title">{{ post.title }}</h5>
+    <h5 class="card-title">{{ post.title|default:"Без названия" }}</h5>
     <h6 class="card-subtitle mb-2 text-muted">
       <small>
-        {{ post.pub_date|date:"d E Y" }} |
+        {{ post.pub_date|date:"d E Y"|default:"Дата не указана" }} |
         {% if post.location and post.location.is_published %}
-          {{ post.location.name }}
+          {{ post.location.name|default:"Неизвестное место" }}
         {% else %}
           Планета Земля
         {% endif %}<br>
-        От автора @{{ post.author.username }} в категории
+        От автора @{{ post.author.username|default:"Аноним" }} в категории
         {% include "includes/category_link.html" %}<br>
         <strong>Название категории:</strong> {{ post.category.title|default:"Без категории" }}<br>
-        <strong>Идентификатор категории:</strong> {{ post.category.slug|default:"—" }}<br>
+        <strong>Идентификатор категории:</strong> {{ post.category.slug|default:"Нет ID" }}<br>
         <strong>Местоположение:</strong> {{ post.location.name|default:"Не указано" }}<br>
       </small>
     </h6>
-    <p class="card-text">{{ post.text|truncatewords:10 }}</p>
+    <p class="card-text">{{ post.text|truncatewords:10|default:"Текст отсутствует" }}</p>
     <a href="{% url 'blog:post_detail' post.id %}" class="card-link">Читать полный текст</a>
   </div>
 </div>
