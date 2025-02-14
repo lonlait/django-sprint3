@@ -71,7 +71,8 @@ class Post(models.Model):
     )
     pub_date = models.DateTimeField(
         verbose_name='Дата и время публикации',
-        help_text='Если установить дату и время в будущем — публикация будет отложена.'
+        help_text='Если установить дату и время в будущем'
+        '— публикация будет отложена.'
     )
     author = models.ForeignKey(
         User,
