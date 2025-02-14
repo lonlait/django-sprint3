@@ -70,7 +70,8 @@ class Post(models.Model):
         default=''
     )
     pub_date = models.DateTimeField(
-        verbose_name='Дата и время публикации'
+        verbose_name='Дата и время публикации',
+        help_text='Если установить дату и время в будущем — публикация будет отложена.'
     )
     author = models.ForeignKey(
         User,
@@ -88,7 +89,7 @@ class Post(models.Model):
         Category,
         on_delete=models.SET_NULL,
         null=True,
-        blank=True,
+        blank=False,
         verbose_name='Категория'
     )
     is_published = models.BooleanField(
