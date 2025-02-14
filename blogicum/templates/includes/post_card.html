@@ -10,8 +10,7 @@
           Планета Земля
         {% endif %}<br>
         От автора @{{ post.author.username }} в категории
-        {% include "includes/category_link.html" %}
-        <br>
+        {% include "includes/category_link.html" %}<br>
         <strong>Название категории:</strong> {{ post.category.title }}<br>
         <strong>Идентификатор категории:</strong> {{ post.category.slug }}<br>
         <strong>Местоположение:</strong> {{ post.location.name }}
