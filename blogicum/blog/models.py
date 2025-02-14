@@ -70,8 +70,8 @@ class Post(models.Model):
         default=''
     )
     pub_date = models.DateTimeField(
-        verbose_name='Дата и время публикации',
-        help_text='Дата и время, когда публикация становится видна.'
+        verbose_name="Дата и время публикации",
+        help_text="Укажите дату и время для публикации."
     )
     author = models.ForeignKey(
         User,
