@@ -3,8 +3,18 @@
     <h5 class="card-title">{{ post.title }}</h5>
     <h6 class="card-subtitle mb-2 text-muted">
       <small>
-        {{ post.pub_date|date:"d E Y" }} | {% if post.location and post.location.is_published %}{{ post.location.name }}{% else %}Планета Земля{% endif %}<br>
-        От автора @{{ post.author.username }} в категории {% include "includes/category_link.html" %}
+        {{ post.pub_date|date:"d E Y" }} |
+        {% if post.location and post.location.is_published %}
+          {{ post.location.name }}
+        {% else %}
+          Планета Земля
+        {% endif %}<br>
+        От автора @{{ post.author.username }} в категории
+        {% include "includes/category_link.html" %}
+        <br>
+        <strong>Название категории:</strong> {{ post.category.title }}<br>
+        <strong>Идентификатор категории:</strong> {{ post.category.slug }}<br>
+        <strong>Местоположение:</strong> {{ post.location.name }}
       </small>
     </h6>
     <p class="card-text">{{ post.text|truncatewords:10 }}</p>
