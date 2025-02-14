@@ -17,4 +17,3 @@ urlpatterns = [
         include(('blog.urls', 'blog'), namespace='blog_section')
     ),
 ]
-

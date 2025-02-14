@@ -1,13 +1,7 @@
-# ✅ Исправление замечаний flake8 в views.py:
-
-## 1️⃣ Проблемы:
-- E303: Слишком много пустых строк (3) перед функциями.
-
-## 2️⃣ Обновлённый код views.py:
-```python
 from django.shortcuts import render, get_object_or_404
 from django.utils.timezone import now
 from .models import Post, Category
+
 
 def index(request):
     posts = (
