@@ -58,7 +58,7 @@ class Post(models.Model):
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        verbose_name='Автор'
+        verbose_name='Автор публикации'
     )
     title = models.CharField(
         max_length=256,
@@ -70,13 +70,10 @@ class Post(models.Model):
         default=''
     )
     pub_date = models.DateTimeField(
-        verbose_name="Дата и время публикации",
-        help_text="Укажите дату и время для публикации."
-    )
-    author = models.ForeignKey(
-        User,
-        on_delete=models.CASCADE,
-        verbose_name='Автор публикации'
+        help_text=(
+            "Если установить дату и время в будущем — "
+            "можно делать отложенные публикации."
+        )
     )
     location = models.ForeignKey(
         Location,
