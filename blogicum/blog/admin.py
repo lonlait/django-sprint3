@@ -1,4 +1,5 @@
-from django.contrib import admin
+import django.contrib.admin as admin
+
 from .models import Category, Location, Post
 
 
