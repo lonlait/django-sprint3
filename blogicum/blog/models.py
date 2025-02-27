@@ -5,6 +5,7 @@ User = get_user_model()
 
 TITLE_MAX_LENGTH = 256
 
+
 class BaseModel(models.Model):
     is_published = models.BooleanField(
         default=True,
@@ -17,6 +18,7 @@ class BaseModel(models.Model):
 
     class Meta:
         abstract = True
+
 
 class Category(BaseModel):
     title = models.CharField(
@@ -36,6 +38,7 @@ class Category(BaseModel):
         verbose_name = 'категория'
         verbose_name_plural = 'Категории'
 
+
     def __str__(self):
         return self.title[:50]
 
@@ -47,6 +50,7 @@ class Location(BaseModel):
     class Meta:
         verbose_name = 'местоположение'
         verbose_name_plural = 'Местоположения'
+
 
     def __str__(self):
         return self.name[:50]
